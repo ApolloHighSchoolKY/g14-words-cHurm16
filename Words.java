@@ -25,7 +25,7 @@ public class Words
 		//Continue to loop while there are more words to read
 			while(chopper.hasNext())
 			{
-				wordList.add(new Word(chopper()));
+				wordList.add(new Word(chopper.next()));
 			}
 			//Add objects of the type Word to our ArrayList "wordList"
 
@@ -38,11 +38,8 @@ public class Words
 
 		//for every Word in the ArrayList "wordList"
 		for (Word x: wordList )
-			if(x.getNumVowels())
-			count++;
-
-
-		
+			if(x.getLength()==size)
+				count++;
 
 		return count;
 	}
@@ -58,13 +55,16 @@ public class Words
 			//if the Word has "size" characters
 			//for(int i = wordList.get[i].getLength; i<0; i--)
 			//if the length of the "theWord" is the same as the parameter "size"
-			for (int i=0; i<words.size(); i++)
+			for (int i=wordList.size()-1; i>=0; i--)
 				//if(word.getLength()== size)
 				//vowelCount += wordList.get[i];
-				if (words.get(i).contains("a") || vowels.get(i).contains("e") || vowels.get(i).contains("i") ||
-				 vowels.get(i).contains("o") || vowels.get(i).contains("u"))
-				 vowelCount ++;
-
+				if(wordList.get(i).getLength()==size)
+				{
+					
+					vowelCount += wordList.get(i).getNumVowels();
+					wordList.remove(i);
+				}
+					
 
 		return vowelCount;
 	}
@@ -74,9 +74,8 @@ public class Words
 		int count=0;
 
 		for (Word y: wordList )
-			if(y.getNumVowels())
-			count++;
-
+			if(y.getNumVowels()==numVowels)
+				count++;
 
 		return count;
 		//for every Word in the ArrayList "words"
@@ -86,6 +85,6 @@ public class Words
 
 	public String toString()
 	{
-	   return "";
+	   return "" + wordList;
 	}
 }

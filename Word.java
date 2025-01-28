@@ -31,7 +31,7 @@ public class Word
 
 		for(int i = 0; i<getLength();i++)
 		{
-			if(vowels.indexOf(word.substring(i,i+1)))
+			if(VOWELS.indexOf(word.substring(i,i+1)) !=-1)
 				count +=1; 
 		}
 
@@ -46,7 +46,7 @@ public class Word
 
 	public int getLength()
 	{
-		return word.length;
+		return word.length();
 	}
 
 	public String toString()
